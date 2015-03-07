@@ -1,0 +1,61 @@
+package com.log.wii_car;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+
+public class Home extends Activity {
+
+	Button Drive, Options, Help;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+				WindowManager.LayoutParams.FLAG_FULLSCREEN);
+		setContentView(R.layout.home);
+
+		Drive = (Button) findViewById(R.id.Drive);
+		Options = (Button) findViewById(R.id.Options);
+		Help = (Button) findViewById(R.id.Help);
+
+		Drive.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent openWii_Car = new Intent("com.log.wii_car.WIICAR");
+				
+				startActivity(openWii_Car);
+				finish();
+			}
+		});
+		
+		Options.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent openOptions = new Intent("com.log.wii_car.OPTIONS");
+				
+				startActivity(openOptions);
+				
+			}
+		});
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		finish();
+	}
+	
+
+}

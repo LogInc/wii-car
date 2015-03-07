@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/race"
+     >
+    
+    <Button
+        android:id="@+id/bGas"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="46dp"
+        android:layout_marginEnd="46dp"
+        android:background="@drawable/pedal_effect" />
+
+    <Button
+        android:id="@+id/bBrakes"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_alignBaseline="@+id/bGas"
+        android:layout_alignBottom="@+id/bGas"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="46dp"
+        android:background="@drawable/brake_effect" />
+
+    <ImageView
+        android:id="@+id/gear"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_above="@+id/bBrakes"
+        android:layout_alignLeft="@+id/bBrakes"
+        android:layout_marginBottom="44dp"
+        android:contentDescription="gearbox"
+        android:src="@drawable/drive" />
+
+    <ImageView
+        android:id="@+id/dipper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/bGas"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="26dp"
+        android:src="@drawable/dipper_off" />
+
+    <TextView
+        android:id="@+id/tV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/gear"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Let's Drive" />
+
+    <ImageView
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/bGas"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp"
+        android:contentDescription="Music"
+        android:src="@drawable/play" />
+
+    <TextView
+        android:id="@+id/tPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tV"
+        android:layout_alignTop="@+id/bGas"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/gearState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tV"
+        android:layout_alignLeft="@+id/gear"
+        android:text="Forward" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Ip address" >
+
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="138dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/gearState"
+        android:layout_alignRight="@+id/dipper" 
+        android:text="Input Ip"
+        />
+
+</RelativeLayout>

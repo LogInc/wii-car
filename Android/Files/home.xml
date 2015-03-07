@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu" >
+
+    <Button
+        android:id="@+id/Options"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/Drive"
+        android:layout_below="@+id/Drive"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/options_effect" />
+
+    <Button
+        android:id="@+id/Help"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/Options"
+        android:layout_below="@+id/Options"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/help_effect" />
+
+    <Button
+        android:id="@+id/Drive"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="94dp"
+        android:adjustViewBounds="true"
+        android:alpha="1"
+        android:background="@drawable/drive_effect"
+        android:scaleType="fitXY" />
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu"
+     >
+
+    <Button
+        android:id="@+id/back"
+        style="@style/AppTheme"
+        android:layout_width="43dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="17dp"
+        android:layout_marginLeft="28dp"
+        android:background="@drawable/back"
+        android:contentDescription="back" />
+
+    <Button
+        android:id="@+id/setip"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="112dp"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/setip_effect" />
+
+    <Button
+        android:id="@+id/gps"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/setip"
+        android:layout_below="@+id/setip"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/gps_effect" />
+
+    <Button
+        android:id="@+id/sound"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/gps"
+        android:layout_below="@+id/gps"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/sound_effect" />
+
+</RelativeLayout>

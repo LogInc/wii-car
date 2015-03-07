@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wii-Server</string>
+    <string name="Socket">Listening: 8888...</string>
+    <string name="action_settings">Settings</string>
+    <string name="ipAddress">ip_Address</string>
+    <string name="msg">Lets Drive</string>
+    <string name="button">Check</string>
+    <string name="Error_Message">If your device is not listed, please pair your device in Android Settings</string>
+    <string name="BT_Selection_Method">Select bluetooth Serial Device</string>
+    <string name="test">TEST BT</string>
+
+</resources>

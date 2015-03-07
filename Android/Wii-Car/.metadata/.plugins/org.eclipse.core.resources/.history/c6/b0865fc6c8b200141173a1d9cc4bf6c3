@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wii_Car</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="patent">Wii-Car (Version 1.0), a product of © Log Inc. 2015</string>
+    <string name="Let's Drive">Let's Drive</string>
+
+</resources>

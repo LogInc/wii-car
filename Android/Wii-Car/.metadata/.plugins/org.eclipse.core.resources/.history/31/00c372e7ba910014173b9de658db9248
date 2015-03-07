@@ -1,0 +1,160 @@
+package com.log.wii_car;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+import android.app.Activity;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class Wii_Car extends ActionBarActivity implements SensorEventListener {
+	
+	private SensorManager sensorManager;
+	private Sensor senAccel;
+	InetAddress serveraddress;
+	String ipAddress = null;
+	String bState = null;
+	Button Gas,Brakes;	
+	ImageView Gear;
+	int socketPort = 8888;
+	String ip = "192.168.1.3";
+	byte State = 'C';
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_wii__car);
+		
+		sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		senAccel = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		sensorManager.registerListener(this, senAccel,
+				SensorManager.SENSOR_DELAY_NORMAL);
+		
+		Gas = (Button) findViewById (R.id.bGas);
+		Brakes = (Button) findViewById(R.id.bBrakes);
+		Gear = (ImageView) findViewById(R.id.gear);
+		
+		Gas.setOnTouchListener(new View.OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				State = 'A';
+				if(event.getAction() == MotionEvent.ACTION_DOWN)
+				{
+					MyClientTask myClientTask = new MyClientTask(ipAddress,
+							socketPort, State);
+
+					myClientTask.execute();
+				}
+				return false;
+			}
+		});
+	}
+
+	
+	public class MyClientTask extends AsyncTask<Void, Void, Void> {
+
+		String dstAddress;
+		int dstPort;
+		// String msgToServer;
+		byte msgToServer;
+
+		MyClientTask(String addr, int port, byte msg) {
+			dstAddress = addr;
+			dstPort = port;
+			msgToServer = msg;
+		}
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			// TODO Auto-generated method stub
+
+			Socket socket = null;
+			DataOutputStream dOut = null;
+			DataInputStream dIn = null;
+
+			try {
+				socket = new Socket(dstAddress, dstPort);
+				dIn = new DataInputStream(socket.getInputStream());
+				dOut = new DataOutputStream(socket.getOutputStream());
+
+				dOut.writeByte(msgToServer);
+				
+				// dOut.write(msgToServer);
+
+			} catch (UnknownHostException e) {
+				e.printStackTrace();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+
+			} finally {
+				if (socket != null) {
+					try {
+						socket.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				if (dOut != null) {
+					try {
+						dOut.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+				if (dIn != null) {
+					try {
+						dIn.close();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+
+			}
+
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			// display.setText(response);
+			super.onPostExecute(result);
+		}
+
+	}
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		// TODO Auto-generated method stub
+		
+	}
+}

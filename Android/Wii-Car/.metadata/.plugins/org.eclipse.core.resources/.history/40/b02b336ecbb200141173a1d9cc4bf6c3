@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wii_Car</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="patent">Wii-Car (Version 1.0), a product of © Log Inc. 2015</string>
+    <string name="Drive">Lets Drive</string>
+    <string name="Music">Music</string>
+    <string name="gearBox">Gear Box</string>
+    <string name="des_dipper">Desc_Dipper</string>
+    <string name="Forward">Forward</string>
+    <string name="Ip Address">IP Address</string>
+    <string name="Input Ip">Input Ip</string>
+
+</resources>
